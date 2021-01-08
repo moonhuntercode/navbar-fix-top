@@ -4,10 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
-    
-    
+    <!-- 
+        FUENTE: 
+    https://es.stackoverflow.com/questions/136302/como-dejar-la-barra-de-navegaci%c3%b3n-fija-no-estando-al-principio-del-body
+-->
+
+<script>
+posicionarMenu();
+
+$(window).scroll(function() {    
+    posicionarMenu();
+});
+
+function posicionarMenu() {
+    var altura_del_header = $('.header').outerHeight(true);
+    var altura_del_menu = $('.menu').outerHeight(true);
+
+    if ($(window).scrollTop() >= altura_del_header){
+        $('.menu').addClass('fixed');
+        $('.wrapper').css('margin-top', (altura_del_menu) + 'px');
+    } else {
+        $('.menu').removeClass('fixed');
+        $('.wrapper').css('margin-top', '0');
+    }
+}
+
+</script>
+
+
+<div class="header">
+	<h1>Tutorial mantener fijo el menú al hacer scroll mejorado</h1>
+    <h2>Moonhunter, Diseñador Web Freelance</h2>
+</div>
+<div class="menu">esto sería el menú con sus enlaces</div>
+<div class="wrapper">
+    wrapper, aquí va el contenido. HAZ SCROLL, VERÁS QUE NO HACE SALTO
+</div>
+
+
+
 
 </body>
 </html>
